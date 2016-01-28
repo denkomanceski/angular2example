@@ -18,7 +18,7 @@ import {Todo} from "./Todo";
         <button (click)="changeState(todo)">{{todo.finished}}</button>
         <input type="text" [(ngModel)]="wtf.color"/>
         <input type="text" [(ngModel)]="wtf.size"/>
-        <p [ngStyle]="wtf" >Hello World</p>
+        <p [style.color]="wtf.color" [style.font-size]="wtf.size" >Hello World</p>
         </div>
     `
 })
@@ -29,7 +29,7 @@ export class TodoComponent {
     size:any = '50px';
     wtf:any = {
         "color": "Red",
-        "font-size": "30px"
+        "size": "30px"
     }
     changeState(todo){
         todo.finished = !todo.finished;

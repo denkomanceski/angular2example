@@ -25,7 +25,7 @@ System.register(['angular2/core', "./Todo"], function(exports_1) {
                     this.size = '50px';
                     this.wtf = {
                         "color": "Red",
-                        "font-size": "30px"
+                        "size": "30px"
                     };
                 }
                 TodoComponent.prototype.changeState = function (todo) {
@@ -42,7 +42,7 @@ System.register(['angular2/core', "./Todo"], function(exports_1) {
                 TodoComponent = __decorate([
                     core_1.Component({
                         selector: 'todo',
-                        template: "\n        <div>\n        <h3>{{todo.name}}</h3>\n        <textarea #forceful (keydown.space)=\"todo.name = 'Bill Clinton'; todo.description='Queen of mexico'\">Change Name of {{todo.name}} and {{todo.description}}</textarea>\n        <button (click)=\"forceful.focus()\">Focus the textarea lol</button>\n        <p>{{todo.description}}</p>\n        <p (click)=\"changeState(todo)\" >{{todo.finished}}</p>\n        <button (click)=\"todo.finish()\">Finish Core</button>\n        <button (click)=\"logMe()\">LogMe</button>\n        <button (click)=\"changeState(todo)\">{{todo.finished}}</button>\n        <input type=\"text\" [(ngModel)]=\"wtf.color\"/>\n        <input type=\"text\" [(ngModel)]=\"wtf.size\"/>\n        <p [ngStyle]=\"wtf\" >Hello World</p>\n        </div>\n    "
+                        template: "\n        <div>\n        <h3>{{todo.name}}</h3>\n        <textarea #forceful (keydown.space)=\"todo.name = 'Bill Clinton'; todo.description='Queen of mexico'\">Change Name of {{todo.name}} and {{todo.description}}</textarea>\n        <button (click)=\"forceful.focus()\">Focus the textarea lol</button>\n        <p>{{todo.description}}</p>\n        <p (click)=\"changeState(todo)\" >{{todo.finished}}</p>\n        <button (click)=\"todo.finish()\">Finish Core</button>\n        <button (click)=\"logMe()\">LogMe</button>\n        <button (click)=\"changeState(todo)\">{{todo.finished}}</button>\n        <input type=\"text\" [(ngModel)]=\"wtf.color\"/>\n        <input type=\"text\" [(ngModel)]=\"wtf.size\"/>\n        <p [style.color]=\"wtf.color\" [style.font-size]=\"wtf.size\" >Hello World</p>\n        </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TodoComponent);

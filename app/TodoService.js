@@ -26,29 +26,17 @@ System.register(['angular2/http', "angular2/core", "./Todo", 'rxjs/Rx'], functio
             TodoService = (function () {
                 //externalTodos:Array<Todo>;
                 function TodoService(http) {
-                    //this.http.get('http://localhost:3000/todos')
-                    //    .map(t => t.json())
-                    //    .subscribe(d => this.todos = d, err => {console.log(err)}, () => {
-                    //        this.todos.forEach(function(todo){
-                    //            externalTodos.push(new Todo(todo.name, todo.description, todo.finished))
-                    //        })
-                    //        this.todos = externalTodos;
-                    //        console.log(this.todos);
-                    //    })
                     var _this = this;
                     this.http = http;
+                    this.todos = [];
                     this.one = new Todo_1.Todo("Test", "Smth", true);
                     this.url = 'http://localhost:3000/todos';
                     this.http.get('http://localhost:3000/todos')
                         .map(function (t) { return t.json(); })
-                        .subscribe(function (d) {
-                        var externalTodos = [];
-                        d.forEach(function (todo) {
-                            externalTodos.push(new Todo_1.Todo(todo.name, todo.description, todo.finished));
-                        });
-                        externalTodos.push("t");
-                        _this.todos = externalTodos;
-                        console.log(_this.todos);
+                        .subscribe(function (data) {
+                        data.forEach(function (todo) {
+                            this.todos.push(new Todo_1.Todo(todo.name, todo.description, todo.finished));
+                        }, _this);
                     });
                 }
                 TodoService.prototype.addTodo = function () {
